@@ -33,3 +33,4 @@ npm run preview
 - Open‑Meteo Geocoding + Forecast
 
 Enjoy! ✨
+

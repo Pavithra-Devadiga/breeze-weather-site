@@ -105,7 +105,6 @@ function shortDay(dateStr) {
   return d.toLocaleDateString(undefined, { weekday: "short", day: "numeric" });
 }
 
-// Weather-aware background images (Unsplash)
 const BG_BY_MOOD = {
   sky: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2000&auto=format&fit=crop",
   clouds: "https://images.unsplash.com/photo-1520880867055-1e30d1cb001c?q=80&w=2000&auto=format&fit=crop",
@@ -117,10 +116,10 @@ const BG_BY_MOOD = {
 
 export default function App() {
   const [query, setQuery] = useState("Bengaluru");
-  const [units, setUnits] = useState("metric"); // "metric" | "imperial"
+  const [units, setUnits] = useState("metric"); 
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [place, setPlace] = useState(null); // { name, country_code, latitude, longitude }
+  const [place, setPlace] = useState(null); 
   const [current, setCurrent] = useState(null);
   const [daily, setDaily] = useState(null);
 
@@ -207,12 +206,12 @@ export default function App() {
 
   useEffect(() => {
     searchCity(query);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, []);
 
   useEffect(() => {
     if (place) fetchWeather(place.latitude, place.longitude);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  
   }, [place, units]);
 
   const forecastData = useMemo(() => {
@@ -230,7 +229,7 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen text-white overflow-hidden">
-      {/* Motion background */}
+      {}
       <motion.div
         className="absolute inset-0 -z-10"
         initial={{ opacity: 0 }}
@@ -260,7 +259,7 @@ export default function App() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,0,0,0.35),rgba(0,0,0,0.65))]" />
       </motion.div>
 
-      {/* Header */}
+      {}
       <header className="max-w-6xl mx-auto px-6 pt-8 pb-4 flex flex-col sm:flex-row sm:items-center gap-4">
         <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight drop-shadow-lg">
           Breeze — Weather, elegantly.
@@ -299,7 +298,7 @@ export default function App() {
         </div>
       </header>
 
-      {/* Content */}
+      {}
       <main className="max-w-6xl mx-auto px-6 pb-16">
         {error && (
           <div className="mb-4 bg-red-500/20 border border-red-400/40 text-red-100 p-4 rounded-2xl">
@@ -307,7 +306,7 @@ export default function App() {
           </div>
         )}
 
-        {/* Top summary */}
+        {}
         <section className="grid md:grid-cols-3 gap-6">
           <div className="md:col-span-2 bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl ring-1 ring-white/10">
             <div className="flex items-start justify-between">
@@ -372,7 +371,7 @@ export default function App() {
               </motion.div>
             </div>
 
-            {/* Hourly temps mini strip */}
+            {}
             {current?.hourly?.time && (
               <div className="mt-6">
                 <h3 className="text-white/80 mb-2">Next hours</h3>
@@ -402,7 +401,7 @@ export default function App() {
             )}
           </div>
 
-          {/* Weekly forecast card */}
+          {}
           <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl ring-1 ring-white/10">
             <h3 className="text-xl font-medium mb-3">This week</h3>
             <div className="space-y-2">
@@ -429,7 +428,7 @@ export default function App() {
           </div>
         </section>
 
-        {/* Chart */}
+        {}
         {forecastData.length > 0 && (
           <section className="mt-8 bg-white/10 backdrop-blur-md rounded-3xl p-6 shadow-2xl ring-1 ring-white/10">
             <h3 className="text-xl font-medium mb-4">7‑day temperature trend</h3>
@@ -455,13 +454,13 @@ export default function App() {
           </section>
         )}
 
-        {/* Footer */}
+        {}
         <footer className="mt-10 text-sm text-white/70">
           Powered by Open‑Meteo • Backgrounds from Unsplash • Built with React + Tailwind + Framer Motion + Recharts
         </footer>
       </main>
 
-      {/* Loading overlay */}
+      {}
       {loading && (
         <div className="absolute inset-0 bg-black/30 backdrop-blur-sm grid place-items-center z-10">
           <motion.div
